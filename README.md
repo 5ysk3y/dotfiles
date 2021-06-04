@@ -24,3 +24,7 @@ Here are a list of the current applications I use (other config files may be als
 - *Menu:* [Wofi](https://hg.sr.ht/~scoopta/wofi)
 - *Shell:* [Alacritty](https://github.com/alacritty/alacritty) / zsh
 - *Browser:* [Qutebrowser](https://github.com/qutebrowser/qutebrowser)
+
+**Screenshot**
+
+![image](https://user-images.githubusercontent.com/62815243/120772614-65a2ff00-c518-11eb-896a-a9843a057b83.png)
