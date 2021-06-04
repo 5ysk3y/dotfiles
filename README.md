@@ -2,7 +2,7 @@
 
 Herein lies my most used/maintained Linux configuration files; most conform to the [XDG Specification](https://wiki.archlinux.org/title/XDG_Base_Directory) so dropping them into most setups should work-- famous last words.
 
-These are not specific to hacking and are amely here for myself as a backup with subsequent version control; I'm making them public in case they are of use to anyone else. I also cannot offer support for any issues you may/may not experience.
+These are not specific to hacking and are namely here for myself as a backup with subsequent version control; I'm making them public in case they are of use to anyone else. I also cannot offer support for any issues you may/may not experience.
 
 ### Usage
 
