@@ -1,6 +1,9 @@
+#
+#
 #           █▀▀ █░░█ █▀▀ █░█ █▀▀█ █░░█
 #           ▀▀▄ █▄▄█ ▀▀█ █▀▄ ░░▀▄ █▄▄█
 #           ▄▄▀ ▄▄▄█ ▀▀▀ ▀░▀ █▄▄█ ▄▄▄█
+#
 #
 # The majority of this is a base .oh-my-zsh config, with some custom bindings,
 # aliases and environment variables.
@@ -117,7 +120,7 @@ alias wget="wget -U 'noleak'"
 alias curl="curl --user-agent 'noleak'"
 alias ll="ls -lash"
 alias wcopy="wl-copy -n -o" # Native Wayland clipboard
-alias xcopy="xclip -sel clip" # X11 comptabile clipboard
+alias xcopy="xclip -sel clip -r -l 1" # X11 comptabile clipboard
 alias cpu_usage="ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head"
 alias restic="sudo restic -r  sftp:backupServer:/Linux/PC -p /root/.restic" # Restic for system backups
 alias shred="shred -zfu"
@@ -127,7 +130,7 @@ alias mpv_tv="/bin/python3 ~/.config/mpv/scripts/mpvDLNA/mpvDLNA.py -b  http://m
 # Environment
 export KEYTIMEOUT=1
 export LD_PRELOAD=""
-export EDITOR="emacs"
+export EDITOR="vim"
 export PATH="/bin:/usr/local/bin:/sbin:/usr/bin:/usr/sbin:$HOME/.gem/ruby/2.7.0/bin:"
 
 export XDG_CONFIG_HOME="$HOME"/.config
@@ -150,7 +153,7 @@ export NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/self-signed-ca-cert.
 
 # Make 'vim' open Wayland compatible fork of Emacs: https://github.com/masm11/emacs - Doom emacs is installed on top of this for vim functionality.
 vim () {
-  /bin/emacs --no-window-system "$@"
+  /bin/emacs -nw "$@"
 }
 
 # Keybinds

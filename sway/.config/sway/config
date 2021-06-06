@@ -29,7 +29,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 exec openrgb --profile MainBlue.orp > /dev/null 2>&1
 exec ckb-next --background
 exec nextcloud --background
-exec wl-paste -p -t text --watch clipman store -P
+exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec /bin/emacs --daemon
 
@@ -111,6 +111,9 @@ seat * hide_cursor 5000
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Clipboard Picker
+    bindsym $mod+c exec clipman pick -t wofi
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
