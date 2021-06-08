@@ -4,6 +4,15 @@ Herein lies my most used/maintained Linux configuration files; most conform to t
 
 These are not specific to hacking and are namely here for myself as a backup with subsequent version control; I'm making them public in case they are of use to anyone else. I also cannot offer support for any issues you may/may not experience.
 
+### Fonts
+
+Please enusre you have the following fonts included for a smooth setup-- I've noted the respective package names relative to the `Arch` distro. Some of these may be different if you're running another flavor of Linux:
+
+- *Terminus* (terminus-font via community repo)
+- *Font Awesome* (otf-font-awesome via community repo)
+- *Source Code Pro* (adobe-source-code-pro-fonts via extra repo)
+- *Tamzen* (tamzen-font-git via aur repo)
+
 ### Usage
 
 This is designed to be used with [GNU Stow](https://www.gnu.org/software/stow/) in the following manner:
