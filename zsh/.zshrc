@@ -133,22 +133,36 @@ export LD_PRELOAD=""
 export EDITOR="vim"
 export PATH="/bin:/usr/local/bin:/sbin:/usr/bin:/usr/sbin:$HOME/.gem/ruby/2.7.0/bin:"
 
+## Set XDG Spec Directories
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_CACHE_HOME="$HOME"/.cache
 
+## Ruby / Bundle
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 
+## Go/Cargo/NPM
 export GOPATH="$XDG_DATA_HOME"/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
-export ZDOTDIR="$XDG_CACHE_HOME"/zsh
 
+## ZSH
+export ZDOTDIR="$XDG_CACHE_HOME"/zsh
+export HISTFILE="$XDG_CACHE_HOME"/zsh/.zsh_history
+
+## Less
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE=- # Disable less history file
+
+## Python
+export PYLINTHOME="$XDG_DATA_HOME"/pylint
+
+## SSL
 export NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/self-signed-ca-cert.crt
 
 # Make 'vim' open Wayland compatible fork of Emacs: https://github.com/masm11/emacs - Doom emacs is installed on top of this for vim functionality.
