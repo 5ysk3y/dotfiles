@@ -120,7 +120,7 @@ alias wget="wget -U 'noleak'"
 alias curl="curl --user-agent 'noleak'"
 alias ll="ls -lash"
 alias wcopy="wl-copy -n -o" # Native Wayland clipboard
-alias xcopy="xclip -sel clip -r -l 1" # X11 comptabile clipboard
+alias xcopy="xclip -sel clip -r" # X11 comptabile clipboard
 alias cpu_usage="ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head"
 alias restic="sudo restic -r  sftp:backupServer:/Linux/PC -p /root/.restic" # Restic for system backups
 alias shred="shred -zfu"

@@ -32,13 +32,14 @@ exec nextcloud --background
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec /bin/emacs --daemon
+exec fnott
 
 ### Screenshot Functionality
 #
-bindsym $mod+p exec grimshot copy output && dunstify "Grimshot" "Active screen copied to clipboard"
-bindsym $mod+Shift+p exec grimshot copy area && dunstify "Grimshot" "Area copied to clipboard"
-bindsym $mod+Control+p exec grimshot copy window && dunstify "Grimshot" "Window copied to clipboard"
-bindsym $mod+Alt+p exec grimshot copy screen && dunstify "Grimshot" "All screens copied to clipboard"
+bindsym $mod+p exec grimshot copy output && notify-send "Grimshot" "Active screen copied to clipboard"
+bindsym $mod+Shift+p exec grimshot copy area && notify-send "Grimshot" "Area copied to clipboard"
+bindsym $mod+Control+p exec grimshot copy window && notify-send "Grimshot" "Window copied to clipboard"
+bindsym $mod+Alt+p exec grimshot copy screen && notify-send "Grimshot" "All screens copied to clipboard"
 
 ### Window Titles
 #
@@ -114,6 +115,9 @@ seat * hide_cursor 5000
 
     # Clipboard Picker
     bindsym $mod+c exec clipman pick -t wofi
+
+    # Dismiss Notification (fnott)
+    bindsym $mod+x exec fnottctl dismiss
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
