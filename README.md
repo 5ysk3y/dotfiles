@@ -6,12 +6,12 @@ These are not specific to hacking and are namely here for myself as a backup wit
 
 ### Fonts
 
-Please enusre you have the following fonts included for a smooth setup-- I've noted the respective package names relative to the `Arch` distro. Some of these may be different if you're running another flavor of Linux:
+Please enusre you have the following fonts included for a smooth setup-- I've noted the respective package names relative to the `Arch` distro. Some of these may be different if you're running another flavour of Linux:
 
-- *Terminus* (terminus-font via community repo)
-- *Font Awesome* (otf-font-awesome via community repo)
-- *Source Code Pro* (adobe-source-code-pro-fonts via extra repo)
-- *Tamzen* (tamzen-font-git via aur repo)
+- *Terminus* (`terminus-font` via `community` repo)
+- *Font Awesome* (`otf-font-awesome` via `community` repo)
+- *Source Code Pro* (`adobe-source-code-pro-fonts` via `extra` repo)
+- *Tamzen* (`tamzen-font-git` via `aur` repo)
 
 ### Usage
 
