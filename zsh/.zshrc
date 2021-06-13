@@ -162,6 +162,10 @@ export LESSHISTFILE=- # Disable less history file
 ## Python
 export PYLINTHOME="$XDG_DATA_HOME"/pylint
 
+## Pass
+
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+
 ## SSL
 export NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/self-signed-ca-cert.crt
 
