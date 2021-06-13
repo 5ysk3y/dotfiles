@@ -28,7 +28,7 @@ This will configure these files from your home directory (~) but you can change 
 Here are a list of the current applications I use (other config files may be also added to this repo over time):
 
 - *Compositor:* [Sway](https://github.com/swaywm/sway) / [Wayland](https://github.com/wayland-project/wayland)
-- *Notifications:* [Dunst](https://github.com/dunst-project/dunst) (until I migrate to [fnott](https://gitlab.com/dnkl/fnott))
+- *Notifications:* [fnott](https://gitlab.com/dnkl/fnott)
 - *Bar:* [Waybar](https://github.com/Alexays/Waybar)
 - *Menu:* [Wofi](https://hg.sr.ht/~scoopta/wofi)
 - *Shell:* [Alacritty](https://github.com/alacritty/alacritty) / zsh
