@@ -36,10 +36,10 @@ exec fnott
 
 ### Screenshot Functionality
 #
-bindsym $mod+p exec grimshot copy output && notify-send "Grimshot" "Active screen copied to clipboard"
-bindsym $mod+Shift+p exec grimshot copy area && notify-send "Grimshot" "Area copied to clipboard"
-bindsym $mod+Control+p exec grimshot copy window && notify-send "Grimshot" "Window copied to clipboard"
-bindsym $mod+Alt+p exec grimshot copy screen && notify-send "Grimshot" "All screens copied to clipboard"
+bindsym $mod+p exec '~/.config/sway/grimclip.sh --notify copy output'
+bindsym $mod+Shift+p exec '~/.config/sway/grimclip.sh --notify copy area'
+bindsym $mod+Control+p exec '~/.config/sway/grimclip.sh --notify copy window'
+bindsym $mod+Alt+p exec '~/.config/sway/grimclip.sh --notify copy screen'
 
 ### Window Titles
 #
