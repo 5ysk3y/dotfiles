@@ -1,10 +1,4 @@
----
-title: Dotfiles
-description: A collection of personal dotfiles for me, 5ysk3y.
-author: 5ysk3y
-tags: dotfiles, sway, wayland
-colors: Dracula
----
+# Menu
 
 - [Introduction](#dotfiles)
 - [Applications](#applications)
@@ -28,7 +22,7 @@ Here are a list of the current applications I use (other config files may be als
 - *Menu:* [Wofi](https://hg.sr.ht/~scoopta/wofi)
 - *Shell:* [Alacritty](https://github.com/alacritty/alacritty) / zsh
 - *Browser:* [Qutebrowser](https://github.com/qutebrowser/qutebrowser)
-
+- *Screenshots*: [Grimshot](https://github.com/swaywm/sway/blob/master/contrib/grimshot)
 ### Fonts
 
 Please enusre you have the following fonts included for a smooth setup-- I've noted the respective package names relative to the `Arch` distro. Some of these may be different if you're running another flavour of Linux:
