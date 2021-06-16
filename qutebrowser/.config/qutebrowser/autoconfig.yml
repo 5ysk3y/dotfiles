@@ -36,8 +36,14 @@ settings:
     global: '#f8f8f2'
   colors.webpage.bg:
     global: light grey
+  colors.webpage.darkmode.algorithm:
+    global: lightness-cielab
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.grayscale.images:
+    global: 0.0
+  colors.webpage.darkmode.policy.images:
+    global: never
   colors.webpage.darkmode.threshold.background:
     global: 150
   colors.webpage.darkmode.threshold.text:
