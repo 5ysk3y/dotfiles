@@ -122,7 +122,7 @@ alias ll="ls -lash"
 alias wcopy="wl-copy -n -o" # Native Wayland clipboard
 alias xcopy="xclip -sel clip -r" # X11 comptabile clipboard
 alias cpu_usage="ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head"
-alias restic="sudo restic -r  sftp:backupServer:/Linux/PC -p /root/.restic" # Restic for system backups
+alias restic="sudo restic -r sftp:backupServer:/Linux/PC -p /root/.restic" # Restic for system backups
 alias shred="shred -zfu"
 alias mpv_query="/bin/python3 ~/.config/mpv/scripts/mpvDLNA/mpvDLNA.py -b http://mediaserver:32469/DeviceDescription.xml" # Command line query for local Plex media server
 alias mpv_tv="/bin/python3 ~/.config/mpv/scripts/mpvDLNA/mpvDLNA.py -b  http://mediaserver:32469/DeviceDescription.xml f370b7391c5a624c5df3" # Shows TV stuff specifically

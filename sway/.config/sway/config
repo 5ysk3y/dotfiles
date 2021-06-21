@@ -116,7 +116,7 @@ seat * hide_cursor 5000
     bindsym $mod+d exec $menu
 
     # Clipboard Picker
-    bindsym $mod+c exec clipman pick -t wofi
+    bindsym $mod+c exec clipman pick -t wofi --histpath="~/.local/share/clipman-primary.json"
 
     # Dismiss Notification (fnott)
     bindsym $mod+x exec fnottctl dismiss
