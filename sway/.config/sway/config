@@ -257,6 +257,7 @@ seat * hide_cursor 5000
     for_window [class="discord"] focus, move container to workspace $ws5
     for_window [class="Signal"] no_focus, move container to workspace $ws5
     for_window [class="wow.exe"] move container to workspace $ws3
+    for_window [class="ffxiv_dx11.exe"] move container to workspace $ws3, fullscreen enable
     for_window [class="apple-music-for-linux"] move container to workspace $ws6
     for_window [class="obsidian"] move container to workspace $ws7, no_focus
     for_window [class="explorer.exe"] floating enabled, move container to workspace $ws3, move absolute position 3680 50

@@ -73,6 +73,7 @@ settings:
   content.media.video_capture:
     https://discord.com: true
   content.notifications.enabled:
+    https://codedeception.net: false
     https://www.reddit.com: true
   content.proxy:
     global: none
@@ -100,7 +101,7 @@ settings:
     global: '{index}: {current_title}'
   url.searchengines:
     global:
-      DEFAULT: https://3g2upl4pq6kufc4m.onion/?q={}
+      DEFAULT: https://search.brave.com/search?q={}
       aw: https://wiki.archlinux.org/?search={}
       google: https://google.com/search?q={}
       gtfo: https://gtfobins.github.io/#{}

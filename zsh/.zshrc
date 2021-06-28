@@ -132,6 +132,7 @@ export KEYTIMEOUT=1
 export LD_PRELOAD=""
 export EDITOR="vim"
 export PATH="/bin:/usr/local/bin:/sbin:/usr/bin:/usr/sbin:$HOME/.gem/ruby/2.7.0/bin:"
+export GTK_THEME="Dracula"
 
 ## Set XDG Spec Directories
 export XDG_CONFIG_HOME="$HOME"/.config
