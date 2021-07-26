@@ -62,7 +62,7 @@ settings:
     https://www.google.com: false
   content.headers.user_agent:
     global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
-      Chrome/80.0.3987.149 Safari/537.36
+      Chrome/90.0.4430.93 Safari/537.36
   content.javascript.can_open_tabs_automatically:
     global: true
   content.media.audio_capture:
@@ -75,12 +75,15 @@ settings:
   content.notifications.enabled:
     https://codedeception.net: false
     https://www.reddit.com: true
+    https://www.youtube.com: false
   content.proxy:
     global: none
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   content.webrtc_ip_handling_policy:
     global: disable-non-proxied-udp
+  content.xss_auditing:
+    global: true
   downloads.remove_finished:
     global: 300000
   fonts.default_family:

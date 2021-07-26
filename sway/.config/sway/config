@@ -28,13 +28,12 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 ### Startup Configuration
 #
+exec fnott
 exec openrgb --profile MainBlue.orp > /dev/null 2>&1
 exec ckb-next --background
 exec nextcloud --background
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec /bin/emacs --daemon
-exec fnott
 
 ### Screenshot Functionality
 #
@@ -59,8 +58,9 @@ output * bg ~/Downloads/Wallpapers/current fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output DP-1 resolution 1920x1080@60hz pos 0 200
-output DP-2 resolution 2560x1440@144hz pos 1920 0
-output HDMI-A-2 resolution 1920x1080@60hz pos 4480 200
+output DP-2 resolution 2560x1440@144hz pos 1920 0 scale 1
+#output DP-2 resolution 1920x1080@144hz pos 1920 0 scale 1
+output HDMI-A-2 resolution 1920x1080@144hz pos 4480 200
 focus output DP-2
 
 ### Idle configuration
@@ -79,7 +79,7 @@ exec ~/.config/sway/idle/run.sh &
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
+### Input configuration back_and_forth
 #
 # Example configuration:
 #
@@ -186,7 +186,7 @@ seat * hide_cursor 5000
     set $ws10 "10:work"
 
     # Switch to workspace
-    bindsym $mod+1 workspace $ws1, for_window [app_id="Alacritty"] focus
+    bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
     bindsym $mod+3 workspace $ws3
     bindsym $mod+4 workspace $ws4
@@ -233,40 +233,49 @@ seat * hide_cursor 5000
     workspace $ws8 output DP-1
 
     # Workspace Setup
-    exec swaymsg 'workspace $ws1; exec alacritty';
+    exec swaymsg 'workspace $ws1; exec alacritty -t "Alacritty"';
     exec sleep 0.5s && exec swaymsg 'workspace $ws2; exec qutebrowser'
-    exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec signal-desktop; layout tabbed'
+    exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec signal-desktop --use-tray-icon --enable-features=UseOzonePlatform --ozone-platform=wayland > /dev/null 2>&1 &; layout tabbed'
     exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec discord; layout tabbed'
+    exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec alacritty -t "weechat" -e weechat'
     exec sleep 0.5s && exec swaymsg 'workspace $ws6; exec apple-music-for-linux'
 
     # Assignments
     #
     # Full Screen Idle Inhibitor
-    for_window [class="^.*"] border pixel 1
     for_window [class="^.*"] inhibit_idle fullscreen
     for_window [app_id="^.*"] inhibit_idle fullscreen
+
+    # Configure window border/gaps
+    #
+    for_window [class="^.*"] border pixel 1
     gaps inner 10
 
     # Window Assignments
-
+    #
     for_window [app_id="lutris"] move container to workspace $ws3
     for_window [app_id="virt-manager"] move container to workspace $ws4, floating enabled
-    for_window [app_id="mpv"] move container to workspace $ws1, floating enabled, move absolute position 3680 50
+    for_window [app_id="mpv"] move container to workspace $ws1, floating enabled, move absolute position 3975 50
     for_window [app_id="org.qutebrowser.qutebrowser"] focus, move container to workspace $ws2
     for_window [app_id="org.remmina.Remmina"] floating enabled, move container to workspace $ws10
     for_window [class="discord"] focus, move container to workspace $ws5
     for_window [class="Signal"] no_focus, move container to workspace $ws5
-    for_window [class="wow.exe"] move container to workspace $ws3
-    for_window [class="ffxiv_dx11.exe"] move container to workspace $ws3, fullscreen enable
     for_window [class="apple-music-for-linux"] move container to workspace $ws6
     for_window [class="obsidian"] move container to workspace $ws7, no_focus
     for_window [class="explorer.exe"] floating enabled, move container to workspace $ws3, move absolute position 3680 50
+
+    # Games
+    for_window [class="wow.exe"] move container to workspace $ws3
+    for_window [class="ffxivlauncher64.exe"] move container to workspace $ws3
+    for_window [class="ffxiv_dx11.exe"] move container to workspace $ws3, fullscreen enable
+    for_window [class="Hacknet.bin.x86_64"] move container to workspace $ws3, fullscreen enable
 
     assign [app_id="virt-manager"] $ws4
     assign [app_id="lutris"] $ws3
     assign [class="battle.net.exe"] $ws3
     assign [class="explorer.exe"] $ws3
     assign [class="Signal"] $ws5
+    assign [app_id="Signal"] $ws5
 
     # Keybind to focus MPV window
     bindsym $mod+Shift+v [app_id="mpv"] focus
