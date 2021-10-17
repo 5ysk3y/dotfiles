@@ -24,15 +24,18 @@ set $menu wofi --show run --font "SourceCodePro bold 9"
 #exec hash dbus-update-activation-environment 2>/dev/null && \
 #     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"
 
 ### Startup Configuration
 #
+#exec pactl set-default-sink "HDMI/External Speaker"
+#exec pw-metadata 0 default.configured.audio.sink '{ "name": "HDMI/External Speaker" }'
+#exec pw-metadata 0 default.audio.sink '{ "name": "HDMI/External Speaker" }'
 exec fnott
 exec openrgb --profile MainBlue.orp > /dev/null 2>&1
 exec ckb-next --background
 exec nextcloud --background
-exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+# exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 exec /bin/emacs --daemon
 
 ### Screenshot Functionality
@@ -59,8 +62,8 @@ output * bg ~/Downloads/Wallpapers/current fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output DP-1 resolution 1920x1080@60hz pos 0 200
 output DP-2 resolution 2560x1440@144hz pos 1920 0 scale 1
-#output DP-2 resolution 1920x1080@144hz pos 1920 0 scale 1
 output HDMI-A-2 resolution 1920x1080@144hz pos 4480 200
+#output HDMI-A-1 pos 1920 0 # Stream Mirror Testing
 focus output DP-2
 
 ### Idle configuration
@@ -136,9 +139,9 @@ seat * hide_cursor 5000
 
     # Volume Keys
 
-    bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume sound_master +2000"
-    bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume sound_master -2000"
-    bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute sound_master toggle"
+    bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume  @DEFAULT_SINK@ +2000"
+    bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@  -2000"
+    bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 
     # Exit sway (logs you out of your Wayland session)
@@ -235,9 +238,9 @@ seat * hide_cursor 5000
     # Workspace Setup
     exec swaymsg 'workspace $ws1; exec alacritty -t "Alacritty"';
     exec sleep 0.5s && exec swaymsg 'workspace $ws2; exec qutebrowser'
-    exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec signal-desktop --use-tray-icon --enable-features=UseOzonePlatform --ozone-platform=wayland > /dev/null 2>&1 &; layout tabbed'
+    exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec signal-desktop; layout tabbed'
     exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec discord; layout tabbed'
-    exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec alacritty -t "weechat" -e weechat'
+    # exec sleep 0.5s && exec swaymsg 'workspace $ws5; exec alacritty -t "weechat" -e weechat'
     exec sleep 0.5s && exec swaymsg 'workspace $ws6; exec apple-music-for-linux'
 
     # Assignments
@@ -256,6 +259,8 @@ seat * hide_cursor 5000
     for_window [app_id="lutris"] move container to workspace $ws3
     for_window [app_id="virt-manager"] move container to workspace $ws4, floating enabled
     for_window [app_id="mpv"] move container to workspace $ws1, floating enabled, move absolute position 3975 50
+    for_window [app_id="zoom"] floating enabled
+    for_window [app_id="com.nextcloud.desktopclient.nextcloud"] move container to workspace $ws1, floating enabled, move absolute position 3970 40, resize set width 500px
     for_window [app_id="org.qutebrowser.qutebrowser"] focus, move container to workspace $ws2
     for_window [app_id="org.remmina.Remmina"] floating enabled, move container to workspace $ws10
     for_window [class="discord"] focus, move container to workspace $ws5
@@ -268,6 +273,7 @@ seat * hide_cursor 5000
     for_window [class="wow.exe"] move container to workspace $ws3
     for_window [class="ffxivlauncher64.exe"] move container to workspace $ws3
     for_window [class="ffxiv_dx11.exe"] move container to workspace $ws3, fullscreen enable
+    for_window [class="gamescope"] move container to workspace $ws3, fullscreen enable
     for_window [class="Hacknet.bin.x86_64"] move container to workspace $ws3, fullscreen enable
 
     assign [app_id="virt-manager"] $ws4
@@ -348,7 +354,7 @@ client.background       #F8F8F2
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    swaybar_command waybar
+    #swaybar_command waybar
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done

@@ -172,7 +172,8 @@ export NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/self-signed-ca-cert.
 
 # Make 'vim' open Wayland compatible fork of Emacs: https://github.com/masm11/emacs - Doom emacs is installed on top of this for vim functionality.
 vim () {
-  (/bin/emacsclient -c "$@" &) > /dev/null 2>&1
+   (/bin/emacsclient -c "$@" &) > /dev/null 2>&1
+  #(/bin/emacs -nw "$@" &) > /dev/null 2>&1
 }
 
 # Keybinds

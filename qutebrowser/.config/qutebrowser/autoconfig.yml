@@ -22,7 +22,7 @@ settings:
         <Ctrl+l>: spawn -u ~/.config/qutebrowser/userscripts/qute-bitwarden --totp
         cb: spawn -u ~/.config/qutebrowser/userscripts/clear-bitwarden
         ep: spawn -u ~/.config/qutebrowser/userscripts/qute-bitwarden --password-only
-        er: spawn -u readability
+        er: spawn -u readability-js
         et: spawn -u ~/.config/qutebrowser/userscripts/qute-bitwarden --totp-only
         eu: spawn -u ~/.config/qutebrowser/userscripts/qute-bitwarden --username-only
         po: set content.proxy socks://localhost:9050/
@@ -61,8 +61,8 @@ settings:
     https://nextcloud.local: true
     https://www.google.com: false
   content.headers.user_agent:
-    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
-      Chrome/90.0.4430.93 Safari/537.36
+    global: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
+      like Gecko) Chrome/94.0.4606.81 Safari/537.36
   content.javascript.can_open_tabs_automatically:
     global: true
   content.media.audio_capture:
@@ -73,7 +73,6 @@ settings:
   content.media.video_capture:
     https://discord.com: true
   content.notifications.enabled:
-    https://codedeception.net: false
     https://www.reddit.com: true
     https://www.youtube.com: false
   content.proxy:
@@ -90,6 +89,9 @@ settings:
     global: Terminus
   fonts.default_size:
     global: 9pt
+  qt.environ:
+    global:
+      NODE_PATH: /usr/lib/node_modules
   qt.process_model:
     global: process-per-site-instance
   scrolling.smooth:
