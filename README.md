@@ -13,6 +13,7 @@ Herein lies my most used/maintained Linux configuration files; most conform to t
 These are not specific to hacking and are namely here for myself as a backup with subsequent version control; I'm making them public in case they are of use to anyone else. I also cannot offer support for any issues you may/may not experience.
 
 **17/10/21 - Update**
+
 As of mid-October, a number of seemingly standard Sway configuration changes have been removed from my setup. This is due to me switching to systemd control for some specific Sway-related services, and that can be replicated fairly easily by following [this](https://github.com/swaywm/sway/wiki/Systemd-integration) - note that Sway itself is not running as a user service, but `sway-session.target` is implemented along with services for Waybar and SwayIdle. I may look to include service files in this repo with another update so that those are also available. If any problems are experienced you always have the option of rolling back to a commit prior to October 2021.
 
 ### Applications
